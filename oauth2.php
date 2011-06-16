@@ -132,10 +132,10 @@ class OAuth2_Service
         if ($this->_scope) {
             $parameters['scope'] = $this->_scope;
         }
-        $url = $this->_configuration->getAuthorizeEndpoint() . '?' . http_build_query($parameters);
+        return $url = $this->_configuration->getAuthorizeEndpoint() . '?' . http_build_query($parameters);
 
-        header('Location: ' . $url);
-        die();
+        // header('Location: ' . $url);
+        // die();
     }
 
     /**
@@ -168,7 +168,7 @@ class OAuth2_Service
         //$http->setDebug(true);
         $http->execute();
 
-        $this->_parseAccessTokenResponse($http);
+        return $this->_parseAccessTokenResponse($http);
     }
 
     /**
